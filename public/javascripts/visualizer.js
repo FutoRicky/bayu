@@ -2,9 +2,10 @@ var State, svg;
 var squares;
 var WAVE_DATA;
 var waveform_array, old_waveform, objectUrl, metaHide, micStream;       // raw waveform data from web audio api
-var analyser;
+var analyzers = [];
+var waveform_array = [];
 
-visualize = function(audio) {
+visualize = function() {
     State = {
         width : $(document).width(),
         height : $(document).height(),
@@ -16,13 +17,7 @@ visualize = function(audio) {
                 .attr("height", State.height);
 
     // start
-    document.getElementById('audio_box').appendChild(audio);
-    context = new AudioContext(); // AudioContext object instance
-    analyser = context.createAnalyser(); // AnalyserNode method
-    // Re-route audio playback into the processing graph of the AudioContext
-    source = context.createMediaElementSource(audio);
-    source.connect(analyser);
-    analyser.connect(context.destination);
+
     frameLooper();
 };
 var frameLooper = function() {
@@ -37,14 +32,34 @@ var frameLooper = function() {
     if (delta > State.drawInterval) {
         State.then = now - (delta % State.drawInterval);
 
-        waveform_array = new Uint8Array(analyser.frequencyBinCount);
-        analyser.getByteFrequencyData(waveform_array);
+        waveform_array = [];
+
+        for(var i = 0; i < analyzers.length; i++) {
+          var small_wave_form = new Uint8Array(analyzers[i].frequencyBinCount);
+
+          analyzers[i].getByteFrequencyData(small_wave_form);
+
+          if(waveform_array.length === 0) {
+            waveform_array = small_wave_form;
+          } else {
+            waveform_array = sumArrayElementWise(waveform_array, small_wave_form);
+          }
+        }
+
 
         // draw active visualizer
         equalViz();
     }
 };
 
+var sumArrayElementWise = function(arrA, arrB) {
+  var arrC = [];
+  for(var i = 0; i < arrA.length; i++) {
+    arrC.push(arrA[i] + arrB[i])
+  }
+
+  return arrC;
+}
 
 var equalViz = function() {
     $('body > svg').empty();
