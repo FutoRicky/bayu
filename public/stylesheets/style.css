@@ -3,6 +3,15 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.logo {
+  float: left;
+  width: 15%;
+  height: 20%;
+  margin-top: -2%;
+  margin-left: 3%;
+  position: absolute;
+}
+
 svg rect.equal {
   fill: white;
 }

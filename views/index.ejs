@@ -36,6 +36,7 @@
     <h2 class="title"><%= status + instrument %></h2>
 
     <div id="audio_box"></div>
+    <img class="logo" src="assets/images/bayu-logo.png" />
     <div class="small_buttons">
         <% notes.forEach(function(note) { %>
         <button class="button orange" onClick=<%= "playNote('" + note + "')" %> ><%= note.split(".")[0].split("/")[1] %></button>
