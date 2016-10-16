@@ -11,6 +11,42 @@ var users = require('./routes/users');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var redis = require('redis');
+var client = redis.createClient();
+var fs = require('fs');
+
+client.on('connect', function() {
+  client.del("available_instruments", function(err, reply) {
+    console.log(reply);
+  });
+
+  fs.readFile("./seed.json", "utf8", function(err, data) {
+    var seed = JSON.parse(data);
+
+    seed["instruments"].forEach(function(instrument) {
+      var name = Object.keys(instrument)[0];
+      var instrument_data = new Array(instrument[name]["notes_urls"]);
+
+      client.rpush(["available_instruments", name], function(err, reply) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log(reply);
+        }
+      })
+
+      client.set(name, instrument_data.toString(), function(err, reply) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log(reply);
+        }
+      });
+    })
+  });
+
+  console.log('connected');
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

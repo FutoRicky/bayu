@@ -1,0 +1,109 @@
+{ "instruments" : [
+    { "cello" : {
+        "notes_urls" : [
+          "cello/A.mp3",
+          "cello/Ab.mp3",
+          "cello/B.mp3",
+          "cello/Bb.mp3",
+          "cello/C.mp3",
+          "cello/C2.mp3",
+          "cello/D.mp3",
+          "cello/Db.mp3",
+          "cello/E.mp3",
+          "cello/F.mp3",
+          "cello/G.mp3",
+          "cello/Gb.mp3"
+        ]
+      }
+    },
+    { "flute" : {
+        "notes_urls" : [
+          "flute/A.mp3",
+          "flute/Ab.mp3",
+          "flute/B.mp3",
+          "flute/Bb.mp3",
+          "flute/C.mp3",
+          "flute/C2.mp3",
+          "flute/D.mp3",
+          "flute/Db.mp3",
+          "flute/E.mp3",
+          "flute/F.mp3",
+          "flute/G.mp3",
+          "flute/Gb.mp3"
+        ]
+      }
+    },
+    { "percusion" : {
+        "notes_urls" : [
+          "percusion/guiro.aiff",
+          "percusion/tambourine.aiff"
+        ]
+      }
+    },
+    { "piano" : {
+        "notes_urls" : [
+          "piano/A.aiff",
+          "piano/Ab.aiff",
+          "piano/B.aiff",
+          "piano/Bb.aiff",
+          "piano/C.aiff",
+          "piano/C2.aiff",
+          "piano/D.aiff",
+          "piano/Db.aiff",
+          "piano/E.aiff",
+          "piano/F.aiff",
+          "piano/G.aiff",
+          "piano/Gb.aiff"
+        ]
+      }
+    },
+    { "saxophone" : {
+        "notes_urls" : [
+          "saxophone/C.aiff",
+          "saxophone/D.aiff",
+          "saxophone/Db.aiff",
+          "saxophone/E.aiff"
+        ]
+      }
+    },
+    { "trumbone" : {
+        "notes_urls" : [
+          "trumbone/C.aiff",
+          "trumbone/D.aiff",
+          "trumbone/Db.aiff",
+          "trumbone/E.aiff",
+          "trumbone/F.aiff",
+          "trumbone/G.aiff",
+          "trumbone/Gb.aiff"
+        ]
+      }
+    },
+    { "trumpet" : {
+        "notes_urls" : [
+          "trumpet/A.aiff",
+          "trumpet/Ab.aiff",
+          "trumpet/B.aiff",
+          "trumpet/Bb.aiff",
+          "trumpet/C.aiff",
+          "trumpet/C2.aiff",
+          "trumpet/D.aiff",
+          "trumpet/Db.aiff",
+          "trumpet/E.aiff",
+          "trumpet/F.aiff",
+          "trumpet/G.aiff",
+          "trumpet/Gb.aiff"
+        ]
+      }
+    },
+    { "violin" : {
+        "notes_urls" : [
+          "violin/C.aiff",
+          "violin/D.aiff",
+          "violin/Db.aiff",
+          "violin/E.aiff",
+          "violin/F.aiff"
+        ]
+      }
+    }
+  ]
+}
