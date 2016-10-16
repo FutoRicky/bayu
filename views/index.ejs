@@ -26,10 +26,12 @@
       });
     });
 
+    <% if (instrument !== undefined) { %>
       window.onbeforeunload = function() {
         $.post('/users/<%= instrument %>');
       	return null;
       };
+    <% } %>
     </script>
 
     <div id="audio_box"></div>
