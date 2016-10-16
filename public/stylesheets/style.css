@@ -15,3 +15,7 @@ audio:not([controls]) {
   display: none;
   height: 0;
 }
+
+.title {
+  color: white;
+}

@@ -1,107 +1,70 @@
 { "instruments" : [
-    { "cello" : {
-        "notes_urls" : [
-          "cello/A.mp3",
-          "cello/Ab.mp3",
-          "cello/B.mp3",
-          "cello/Bb.mp3",
-          "cello/C.mp3",
-          "cello/C2.mp3",
-          "cello/D.mp3",
-          "cello/Db.mp3",
-          "cello/E.mp3",
-          "cello/F.mp3",
-          "cello/G.mp3",
-          "cello/Gb.mp3"
-        ]
-      }
-    },
-    { "flute" : {
-        "notes_urls" : [
-          "flute/A.mp3",
-          "flute/Ab.mp3",
-          "flute/B.mp3",
-          "flute/Bb.mp3",
-          "flute/C.mp3",
-          "flute/C2.mp3",
-          "flute/D.mp3",
-          "flute/Db.mp3",
-          "flute/E.mp3",
-          "flute/F.mp3",
-          "flute/G.mp3",
-          "flute/Gb.mp3"
-        ]
-      }
-    },
-    { "percusion" : {
-        "notes_urls" : [
-          "percusion/guiro.aiff",
-          "percusion/tambourine.aiff"
-        ]
-      }
-    },
     { "piano" : {
         "notes_urls" : [
-          "piano/A.aiff",
-          "piano/Ab.aiff",
-          "piano/B.aiff",
-          "piano/Bb.aiff",
-          "piano/C.aiff",
-          "piano/C2.aiff",
-          "piano/D.aiff",
-          "piano/Db.aiff",
-          "piano/E.aiff",
-          "piano/F.aiff",
-          "piano/G.aiff",
-          "piano/Gb.aiff"
+          "piano/Abm.wav",
+          "piano/Am.wav",
+          "piano/Bm.wav",
+          "piano/Cbm.wav",
+          "piano/Cm.wav",
+          "piano/Dbm.wav",
+          "piano/Dm.wav",
+          "piano/Em.wav",
+          "piano/Fbm.wav",
+          "piano/Fm.wav",
+          "piano/Gbm.wav",
+          "piano/Gm.wav"
         ]
       }
     },
-    { "saxophone" : {
+    { "bass" : {
         "notes_urls" : [
-          "saxophone/C.aiff",
-          "saxophone/D.aiff",
-          "saxophone/Db.aiff",
-          "saxophone/E.aiff"
+          "bass/acoustic.wav",
+          "bass/BassDistorted.wav",
+          "bass/dancehall.wav",
+          "bass/basshit.wav",
+          "bass/dirty.wav",
+          "bass/fingered.wav",
+          "bass/harmonic1.wav",
+          "bass/harmonic2.wav",
+          "bass/pro.wav",
+          "bass/rattle.wav",
+          "bass/wowow.wav"
         ]
       }
     },
-    { "trumbone" : {
+    { "drum" : {
         "notes_urls" : [
-          "trumbone/C.aiff",
-          "trumbone/D.aiff",
-          "trumbone/Db.aiff",
-          "trumbone/E.aiff",
-          "trumbone/F.aiff",
-          "trumbone/G.aiff",
-          "trumbone/Gb.aiff"
+          "drum/crunky-kick.wav",
+          "drum/depth-kick.wav",
+          "drum/tonic-kick.wav",
+          "drum/clap.wav",
+          "drum/ride1.wav",
+          "drum/ride4.wav",
+          "drum/rimshot.wav",
+          "drum/snare1.wav",
+          "drum/snare2.wav",
+          "drum/snare3.wav",
+          "drum/tom1.wav",
+          "drum/tom2.wav",
         ]
       }
     },
     { "trumpet" : {
         "notes_urls" : [
-          "trumpet/A.aiff",
-          "trumpet/Ab.aiff",
-          "trumpet/B.aiff",
-          "trumpet/Bb.aiff",
-          "trumpet/C.aiff",
-          "trumpet/C2.aiff",
-          "trumpet/D.aiff",
-          "trumpet/Db.aiff",
-          "trumpet/E.aiff",
-          "trumpet/F.aiff",
-          "trumpet/G.aiff",
-          "trumpet/Gb.aiff"
+          "trumpet/acid-jazz-line.wav",
+          "trumpet/acid-jazz-10.wav",
+          "trumpet/acid-jazz-12.wav"
         ]
       }
     },
-    { "violin" : {
+    { "vocals" : {
         "notes_urls" : [
-          "violin/C.mp3",
-          "violin/D.mp3",
-          "violin/Db.mp3",
-          "violin/E.mp3",
-          "violin/F.mp3"
+          "vocals/Aah-E.wav",
+          "vocals/body.wav",
+          "vocals/everything-cool.wav",
+          "vocals/female-vox.wav",
+          "vocals/i-am-a-machine.wav",
+          "vocals/yoyo.wav"
         ]
       }
     }
