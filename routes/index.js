@@ -13,30 +13,24 @@ router.get('/', function(req, res, next) {
     client = redis.createClient();
   }
 
-  client.lrange("available_instruments", 0, -1, function(err, instruments) {
-    if (err || instruments.length == 0) {
+  client.rpop("available_instruments", function(err, instrument) {
+    console.log(err);
+    console.log(instrument);
+    if (err || instrument == null) {
       res.render('index', { notes: [], status: 'Spectator', instrument: '' });
     } else {
-      var selected_instrument = instruments.pop();
+      client.get(instrument, function(er, reply) {
+        if (er) {
+          console.log(er);
+        } else {
+          var notes = reply.split(",")
 
-      client.get(selected_instrument, function(err, reply) {
-        var notes = reply.split(",")
-        instruments.unshift("available_instruments");
-
-        client.del("available_instruments", function(err, reply) {
-          client.rpush(instruments, function(err, reply) {
-           if(err) {
-            console.log(err);
-           } else {
-            console.log(reply);
-           }
-           client.end(true);
-          });
-        });
-
-        res.render('index', { notes: notes, status: 'Instrument: ', instrument: selected_instrument });
-      })
+          client.end(true);
+          res.render('index', { notes: notes, status: 'Instrument: ', instrument: instrument });
+        }
+      });
     }
+    
   });
 });
 
