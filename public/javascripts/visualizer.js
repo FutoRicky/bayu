@@ -4,7 +4,7 @@ var WAVE_DATA;
 var waveform_array, old_waveform, objectUrl, metaHide, micStream;       // raw waveform data from web audio api
 var analyser;
 
-init = function(audio) {
+visualize = function(audio) {
     State = {
         width : $(document).width(),
         height : $(document).height(),
@@ -17,10 +17,10 @@ init = function(audio) {
 
     // start
     document.getElementById('audio_box').appendChild(audio);
-    context = new webkitAudioContext(); // AudioContext object instance
+    context = new AudioContext(); // AudioContext object instance
     analyser = context.createAnalyser(); // AnalyserNode method
     // Re-route audio playback into the processing graph of the AudioContext
-    source = context.createMediaElementSource(audio); 
+    source = context.createMediaElementSource(audio);
     source.connect(analyser);
     analyser.connect(context.destination);
     frameLooper();
@@ -32,7 +32,7 @@ var frameLooper = function() {
 
     now = Date.now();
     delta = now - State.then;
-    
+
     // some framerate limiting logic -- http://codetheory.in/controlling-the-frame-rate-with-requestanimationframe/
     if (delta > State.drawInterval) {
         State.then = now - (delta % State.drawInterval);

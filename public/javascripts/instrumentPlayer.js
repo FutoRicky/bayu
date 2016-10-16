@@ -1,6 +1,11 @@
 var socket = io('//localhost:3000');
+var audio = new Audio();
+
+$('document').ready(function() {
+  visualize(audio);
+})
+
 socket.on('socketToMe', function(data) {
-  var audio = new Audio();
   audio.src = '/assets/sounds/' + data
   audio.play();
 });
