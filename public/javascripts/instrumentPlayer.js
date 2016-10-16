@@ -18,6 +18,8 @@ socket.on('socketToMe', function(data) {
   analyzers.push(analyser);
   audio.onended = function() {
     console.log("audio ended", "analyzers length: ", analyzers.length, "lengthNow: ", lengthNow);
+    source.disconnect();
+    analyser.disconnect();
     audios.splice(audios.indexOf(audio), 1);
     analyzers.splice(audios.indexOf(audio), 1);
   }
