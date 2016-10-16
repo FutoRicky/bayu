@@ -20,7 +20,9 @@ socket.on('socketToMe', function(data) {
   audio.play();
 });
 
-window.onbeforeunload = function() {
-	$.post('/users/fluta');
-	return null;
-};
+function playNote(url) {
+  $.ajax({
+    url: "/users?note=" + url,
+    type: "GET",
+  });
+}

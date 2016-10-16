@@ -97,11 +97,11 @@
     },
     { "violin" : {
         "notes_urls" : [
-          "violin/C.aiff",
-          "violin/D.aiff",
-          "violin/Db.aiff",
-          "violin/E.aiff",
-          "violin/F.aiff"
+          "violin/C.mp3",
+          "violin/D.mp3",
+          "violin/Db.mp3",
+          "violin/E.mp3",
+          "violin/F.mp3"
         ]
       }
     }
