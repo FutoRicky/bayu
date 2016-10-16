@@ -18,21 +18,16 @@ router.post('/:instrument', function(req, res, next) {
     client = redis.createClient();
   }
 
-  client.lrange("available_instruments", 0, -1, function(err, instruments) {
-    instruments.push(req.params.instrument);
-    instruments.unshift("available_instruments");
+  var instrument = req.params.instrument;
 
-    client.del("available_instruments", function(err, reply) {
-      client.rpush(instruments, function(err, reply) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(reply);
-        }
+  client.rpush(["available_instruments", instrument], function(err, reply) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(reply);
+    }
 
-        client.end(true);
-      });
-    });
+    client.end(true);
   });
 });
 

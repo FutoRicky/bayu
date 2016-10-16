@@ -25,7 +25,7 @@ if(app.get('env') === 'production') {
 }
 
 client.on('connect', function() {
-  client.flushdb("available_instruments", function(err, reply) {
+  client.del("available_instruments", function(err, reply) {
     if (err) {
       console.log(err);
     } else {
