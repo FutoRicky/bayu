@@ -9,7 +9,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/:instrument', function(req, res, next) {
-  var client = redis.createClient();
+  if(process.env.REDISTOGO_URL) {
+    redis_conf = require("url").parse(process.env.REDISTOGO_URL);
+    console.log(redis_conf);
+    client = redis.createClient(redis_conf.port, redis_conf.hostname);
+    client.auth(redis_conf.auth.split(":")[1]);
+  } else {
+    client = redis.createClient();
+  }
 
   client.lrange("available_instruments", 0, -1, function(err, instruments) {
     instruments.push(req.params.instrument);
@@ -22,6 +29,8 @@ router.post('/:instrument', function(req, res, next) {
         } else {
           console.log(reply);
         }
+
+        client.end(true);
       });
     });
   });

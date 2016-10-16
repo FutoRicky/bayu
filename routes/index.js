@@ -4,7 +4,14 @@ var redis = require('redis');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var client = redis.createClient();
+  if(process.env.REDISTOGO_URL) {
+    redis_conf = require("url").parse(process.env.REDISTOGO_URL);
+    console.log(redis_conf);
+    client = redis.createClient(redis_conf.port, redis_conf.hostname);
+    client.auth(redis_conf.auth.split(":")[1]);
+  } else {
+    client = redis.createClient();
+  }
 
   client.lrange("available_instruments", 0, -1, function(err, instruments) {
     if (instruments.length == 0) {
@@ -26,8 +33,9 @@ router.get('/', function(req, res, next) {
           });
         });
 
+        client.end(true);
         res.render('index', { title: 'Express', notes: notes, instrument: selected_instrument });
-      })
+      });
     }
   });
 });

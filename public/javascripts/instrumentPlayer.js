@@ -1,5 +1,5 @@
-var socket = io('//localhost:3000');
-// var socket = io('https://bayu-orch.herokuapp.com');
+// var socket = io('//localhost:3000');
+var socket = io('https://bayu-orch.herokuapp.com');
 var context = new AudioContext(); // AudioContext object instance
 
 $('document').ready(function() {
