@@ -3,12 +3,24 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="javascripts/d3.js"></script>
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/d3.hexbin.v0.min.js?5c6e4f0"></script>
+    <script src="javascripts/id3-minimized.js"></script>
+    <script src="javascripts/visualizer.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/javascripts/instrumentPlayer.js"></script>
+    <div id="audio_box"></div>
+    <script type="text/javascript">
+        var audio = new Audio();
+        audio.src = 'assets/sounds/cello/Ab.mp3';
+        audio.play();
+        // audio.controls = true;
+        // audio.loop = true;
+        // audio.autoplay = true;
+        init(audio);
+    </script>
   </body>
 </html>
