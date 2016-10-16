@@ -1,5 +1,6 @@
-var State, svg, squares, WAVE_DATA, 
+var State, svg, squares, WAVE_DATA,
     analyzers = [],
+    audios = [],
     waveform_array = [];
 
 visualize = function() {

@@ -1,5 +1,5 @@
-// var socket = io('//localhost:3000');
-var socket = io('https://bayu-orch.herokuapp.com');
+var socket = io('//localhost:3000');
+// var socket = io('https://bayu-orch.herokuapp.com');
 var context = new AudioContext(); // AudioContext object instance
 
 $('document').ready(function() {
@@ -14,7 +14,14 @@ socket.on('socketToMe', function(data) {
   source.connect(analyser);
   analyser.connect(context.destination);
 
-  analyzers.push(analyser)
+  var lengthNow = analyzers.length;
+  analyzers.push(analyser);
+  audio.onended = function() {
+    console.log("audio ended", "analyzers length: ", analyzers.length, "lengthNow: ", lengthNow);
+    audios.splice(audios.indexOf(audio), 1);
+    analyzers.splice(audios.indexOf(audio), 1);
+  }
+  audios.push(audio);
 
   audio.src = '/assets/sounds/' + data
   audio.play();
