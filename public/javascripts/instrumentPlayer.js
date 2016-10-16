@@ -19,3 +19,8 @@ socket.on('socketToMe', function(data) {
   audio.src = '/assets/sounds/' + data
   audio.play();
 });
+
+window.onbeforeunload = function() {
+	$.post('/users/fluta');
+	return null;
+};
