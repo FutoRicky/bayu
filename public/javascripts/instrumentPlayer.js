@@ -1,4 +1,5 @@
-var socket = io('//localhost:3000');
+// var socket = io('//localhost:3000');
+var socket = io('http://bayu-orch.herokuapp.com');
 var audio = new Audio();
 
 $('document').ready(function() {
