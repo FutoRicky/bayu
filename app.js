@@ -12,8 +12,17 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var redis = require('redis');
-var client = redis.createClient();
+var client = null;
 var fs = require('fs');
+
+if(app.get('env') === 'production') {
+  redis_conf = require("url").parse(process.env.REDISTOGO_URL);
+  console.log(redis_conf);
+  client = redis.createClient(redis_conf.port, redis_conf.hostname);
+  client.auth(redis_conf.auth.split(":")[1]);
+} else {
+  client = redis.createClient();
+}
 
 client.on('connect', function() {
   client.del("available_instruments", function(err, reply) {

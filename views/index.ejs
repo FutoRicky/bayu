@@ -13,18 +13,33 @@
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/javascripts/instrumentPlayer.js"></script>
     <script>
+    $(document).ready(function() {
+      $(document).keypress(function(event) {
+        event.preventDefault();
+        <% for (var i = 0; i < notes.length; i++) { %>
+            <% note = notes[i] %>
+            if (event.which == <%= 48 + i %>) {
+                playNote("<%= note %>");
+                console.log("played " + <%= i %>);
+            }
+        <% } %>
+      });
+    });
+
+    <% if (instrument !== undefined) { %>
       window.onbeforeunload = function() {
         $.post('/users/<%= instrument %>');
       	return null;
       };
+    <% } %>
     </script>
     <h2 class="title"><%= status + instrument %></h2>
 
     <div id="audio_box"></div>
-    <div class="sounds-container">
-      <% notes.forEach(function(note) { %>
-        <button onClick=<%= "playNote('" + note + "')" %> ><%= note.split(".")[0].split("/")[1] %></button>
-      <% }); %>
+    <div class="small_buttons">
+        <% notes.forEach(function(note) { %>
+        <button class="button orange" onClick=<%= "playNote('" + note + "')" %> ><%= note.split(".")[0].split("/")[1] %></button>
+        <% }); %>
     </div>
   </body>
 </html>

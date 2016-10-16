@@ -14,7 +14,6 @@ visualize = function() {
                 .attr("height", State.height);
 
     // start
-
     frameLooper();
 };
 var frameLooper = function() {
