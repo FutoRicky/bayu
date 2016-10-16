@@ -1,9 +1,6 @@
-var State, svg;
-var squares;
-var WAVE_DATA;
-var waveform_array, old_waveform, objectUrl, metaHide, micStream;       // raw waveform data from web audio api
-var analyzers = [];
-var waveform_array = [];
+var State, svg, squares, WAVE_DATA, 
+    analyzers = [],
+    waveform_array = [];
 
 visualize = function() {
     State = {

@@ -1,5 +1,10 @@
 body {
+  background: black;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+svg rect.equal {
+  fill: white;
 }
 
 a {
