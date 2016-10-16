@@ -27,7 +27,7 @@ router.post('/:instrument', function(req, res, next) {
       console.log(reply);
     }
 
-    client.end(true);
+    client.quit();
   });
 });
 

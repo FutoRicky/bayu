@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
         } else {
           var notes = reply.split(",")
 
-          client.end(true);
+          client.quit();
           res.render('index', { notes: notes, status: 'Instrument: ', instrument: instrument });
         }
       });
