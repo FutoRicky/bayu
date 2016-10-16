@@ -25,8 +25,12 @@ if(app.get('env') === 'production') {
 }
 
 client.on('connect', function() {
-  client.del("available_instruments", function(err, reply) {
-    console.log(reply);
+  client.flushdb("available_instruments", function(err, reply) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(reply);
+    }
   });
 
   fs.readFile("./seed.json", "utf8", function(err, data) {
