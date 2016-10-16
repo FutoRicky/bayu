@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 
   client.lrange("available_instruments", 0, -1, function(err, instruments) {
     if (instruments.length == 0) {
-      res.render('index', { title: 'Express', notes: [], status: 'Spectator', instrument: '' });
+      res.render('index', { notes: [], status: 'Spectator', instrument: '' });
     } else {
       var selected_instrument = instruments.pop();
 
@@ -34,7 +34,7 @@ router.get('/', function(req, res, next) {
         });
 
         client.end(true);
-        res.render('index', { title: 'Express', notes: notes, status: 'Instrument: ', instrument: selected_instrument });
+        res.render('index', { notes: notes, status: 'Instrument: ', instrument: selected_instrument });
       })
     }
   });
