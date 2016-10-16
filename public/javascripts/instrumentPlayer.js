@@ -25,4 +25,5 @@ function playNote(url) {
     url: "/users?note=" + url,
     type: "GET",
   });
-}
+};
+

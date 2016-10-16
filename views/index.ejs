@@ -13,6 +13,18 @@
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/javascripts/instrumentPlayer.js"></script>
     <script>
+    $(document).ready(function() {
+      $(document).keypress(function(event) {
+        event.preventDefault();
+        <% for (var i = 0; i < notes.length; i++) { %>
+            <% note = notes[i] %>
+            if (event.which == <%= 48 + i %>) {
+                playNote("<%= note %>");
+            }
+        <% } %>
+      });
+    });
+
       window.onbeforeunload = function() {
         $.post('/users/<%= instrument %>');
       	return null;
