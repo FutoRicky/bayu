@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
   }
 
   client.lrange("available_instruments", 0, -1, function(err, instruments) {
-    if (instruments.length == 0) {
+    if (err || instruments.length == 0) {
       res.render('index', { notes: [], status: 'Spectator', instrument: '' });
     } else {
       var selected_instrument = instruments.pop();
