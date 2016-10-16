@@ -51,9 +51,15 @@
     },
     { "trumpet" : {
         "notes_urls" : [
-          "trumpet/acid-jazz-line.wav",
-          "trumpet/acid-jazz-10.wav",
-          "trumpet/acid-jazz-12.wav"
+          "trumpet/A3.mp3",
+          "trumpet/A3med.mp3",
+          "trumpet/A3long.mp3",
+          "trumpet/A4.mp3",
+          "trumpet/A4med.mp3",
+          "trumpet/A4long.mp3",
+          "trumpet/A5.mp3",
+          "trumpet/A5med.mp3",
+          "trumpet/A5long.mp3"
         ]
       }
     },
