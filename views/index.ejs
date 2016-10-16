@@ -20,6 +20,7 @@
             <% note = notes[i] %>
             if (event.which == <%= 48 + i %>) {
                 playNote("<%= note %>");
+                console.log("played " + <%= i %>);
             }
         <% } %>
       });
@@ -32,8 +33,10 @@
     </script>
 
     <div id="audio_box"></div>
-    <% notes.forEach(function(note) { %>
-    <button onClick=<%= "playNote('" + note + "')" %> ><%= note.split(".")[0].split("/")[1] %></button>
-    <% }); %>
+    <div class="small_buttons">
+        <% notes.forEach(function(note) { %>
+        <button class="button orange" onClick=<%= "playNote('" + note + "')" %> ><%= note.split(".")[0].split("/")[1] %></button>
+        <% }); %>
+    </div>
   </body>
 </html>
