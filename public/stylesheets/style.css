@@ -1,5 +1,5 @@
 body {
-  background: black;
+  background: #444;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -18,16 +18,21 @@ audio:not([controls]) {
 
 .title {
   color: white;
+  text-align: center;
 }
 
 .small_buttons .button:hover {
     cursor: pointer;
 }
 
+.small_buttons {
+  display: flex;
+  justify-content: center;
+}
+
 /*DE AQUI PA BAJO NO MIREN*/
 .small_buttons .button{
-    border-style: none;
-  width: 80px;
+  border-style: none;
   display: block;
   float: left;
   border-radius:3px;

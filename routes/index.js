@@ -30,10 +30,10 @@ router.get('/', function(req, res, next) {
            } else {
             console.log(reply);
            }
+           client.end(true);
           });
         });
 
-        client.end(true);
         res.render('index', { notes: notes, status: 'Instrument: ', instrument: selected_instrument });
       })
     }

@@ -26,4 +26,3 @@ function playNote(url) {
     type: "GET",
   });
 };
-
