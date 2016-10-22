@@ -1,5 +1,5 @@
 # Bayu
-CrowdSourced Real-Time Jamming Orchestra
+Real-Time Crowd Jamming Orchestra App
 
 ## How to run
 You have to have a local Redis server running.  So install Redis and run:
